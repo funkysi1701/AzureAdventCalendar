@@ -26,6 +26,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
+    projects: 'AzureAdventCalendar'
+    feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build $(buildConfiguration)'
