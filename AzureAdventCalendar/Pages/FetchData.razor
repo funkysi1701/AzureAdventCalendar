@@ -16,7 +16,6 @@ else
             <tr>
                 <th>Name</th>
                 <th>Speed (miles / second)</th>
-                <th>Speed (km / second)</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +24,6 @@ else
                 <tr>
                     <td>@forecast.Name</td>
                     <td>@forecast.Speed</td>
-                    <td>@forecast.SpeedKPH</td>
                 </tr>
             }
         </tbody>
@@ -33,7 +31,7 @@ else
 }
 
 @code {
-    WeatherForecast[] forecasts;
+    List<Reindeer> forecasts;
 
     protected override async Task OnInitializedAsync()
     {

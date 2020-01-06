@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AzureAdventCalendar.Data;
+using Microsoft.EntityFrameworkCore;
+using AzureAdventCalendar.Models;
 
 namespace AzureAdventCalendar
 {
@@ -28,7 +30,9 @@ namespace AzureAdventCalendar
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<WeatherForecastService>();
+            services.AddDbContext<AzureAdventContext>
+    (options => options.UseSqlServer(Configuration.GetConnectionString("Database")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
